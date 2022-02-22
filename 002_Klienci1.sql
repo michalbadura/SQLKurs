@@ -17,9 +17,4 @@ WHERE active = '1';
 SELECT *
 FROM sakila3_7.customer
 WHERE active = '1'
-   OR first_name LIKE 'ANDRE%';
-
-
-SELECT *
-FROM sakila3_7.customer
-WHERE first_name LIKE 'ANDRE%';
+   XOR first_name LIKE 'ANDRE%';
