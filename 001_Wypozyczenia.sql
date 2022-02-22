@@ -26,6 +26,23 @@ SELECT *
 FROM sakila3_7.rental
 WHERE year(rental_date) = 2005 AND month(rental_date) = 05 AND day(rental_date) = 24;
 
+
 -- o wypożyczeniach po 2005-06-30,
 
+SELECT *
+FROM sakila3_7.rental
+WHERE rental_date > '2005-06-30';
 
+-- o wypożyczeniach w trakcie wakacji, tj. pomiędzy 2005-06-30 a 2005-08-31 od pracownika Jon'a (sprawdź najpierw jaki ma staff_id w sakila.staff).
+
+-- szukanie numeru id pracownika Jon.
+
+SELECT staff_id
+FROM sakila3_7.staff
+WHERE first_name = 'Jon';
+
+-- zadanie
+
+SELECT *
+FROM sakila3_7.rental
+WHERE staff_id = '2' AND rental_date BETWEEN '2005-06-30' AND '2005-08-31';
