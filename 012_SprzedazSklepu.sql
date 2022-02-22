@@ -9,4 +9,9 @@ B	50
 Wynikiem powinien być sklep A.
  */
 
- 
+
+
+
+SELECT *
+FROM sakila3_7.sales_by_store
+WHERE total_sales > (SELECT total_sales FROM sales_total) / 2;
