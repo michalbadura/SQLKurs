@@ -42,3 +42,4 @@ FROM sakila3_7.actor
 WHERE actor_id IN (SELECT actor_id FROM actor_analytics WHERE films_amount >= 30);
 
 --  Znajdź aktorów, którzy zagrali w filmach o długości (kolumna longest_movie_duration) 184, 174, 176, 164, 5. Używając poprzedniego podpunktu, z sakila.film znajdź te filmy (tutaj musisz wykonać więcej niż jedno podzapytanie).
+
