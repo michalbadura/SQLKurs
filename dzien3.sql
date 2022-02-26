@@ -77,3 +77,16 @@ select tfa.film_id, total_payments, total_rentals, actors_count from tmp_rentals
 inner join tmp_films_actors tfa on trp.film_id = tfa.film_id
 order by total_rentals desc
 limit 10;
+
+
+with next_date as (
+    select adddate('2000-01-01', row_number() over () - 1) as nd from payment limit 11322
+)
+select nd,
+       extract(year from nd),
+       extract(month  from nd),
+       extract(day from nd),
+       dayofweek(nd),
+       weekofyear(nd),
+       now()
+from next_date;
