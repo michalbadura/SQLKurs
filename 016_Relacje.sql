@@ -23,21 +23,20 @@ Jeśli stwierdzisz, że relacja pomiędzy dwoma tabelami to n-n, podaj również
 
 
 
-/* ODPOWIEDZI:
- 
-
+/*
+ODPOWIEDZI:
 
  Relacje między:
 
- staff oraz rental ->
+ staff oraz rental -> 1-n,
 
- city oraz country ->
+ store oraz film -> n-n (wiele do wielu),
 
- language oraz film ->
+ city oraz country -> 1-n (jeden do wielu),
 
- actor oraz film ->
+ language oraz film -> 1-n,
 
- customer oraz store ->
+ actor oraz film -> n-n,
 
-
+ customer oraz store -> 1-n.
  */
