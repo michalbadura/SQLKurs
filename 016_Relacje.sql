@@ -2,6 +2,8 @@
 
 Poniżej zamieszczamy pełny diagram relacji bazy Sakila.
 
+PRT SCR w pliku 000_schemat_bazy_sakila.png
+
 db-schema
 
 Określ typy relacji pomiędzy:
@@ -21,7 +23,10 @@ Jeśli stwierdzisz, że relacja pomiędzy dwoma tabelami to n-n, podaj również
 
 
 
-/*
+/* ODPOWIEDZI:
+ 
+
+
  Relacje między:
 
  staff oraz rental ->
