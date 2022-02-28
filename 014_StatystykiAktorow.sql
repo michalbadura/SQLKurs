@@ -52,6 +52,7 @@ WHERE actor_id IN (SELECT actor_id FROM sakila3_7.actor_analytics WHERE longest_
 
 SELECT title
 FROM sakila3_7.film WHERE film_id IN (SELECT film_id FROM film_actor WHERE actor_id IN
-            (SELECT actor_analytics.actor_id FROM actor_analytics WHERE longest_movie_duration IN (184, 174, 176, 164, 5)))
-                      AND length in (184, 174, 176, 164, 5);
+            (SELECT actor_analytics.actor_id FROM actor_analytics
+                    WHERE longest_movie_duration IN (184, 174, 176, 164, 5)))
+AND length in (184, 174, 176, 164, 5);
 
