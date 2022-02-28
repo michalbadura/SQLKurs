@@ -41,26 +41,17 @@ SELECT *
 FROM sakila3_7.actor
 WHERE actor_id IN (SELECT actor_id FROM actor_analytics WHERE films_amount >= 30);
 
---  Znajdź aktorów, którzy zagrali w filmach o długości (kolumna longest_movie_duration) 184, 174, 176, 164, 5. Używając poprzedniego podpunktu, z sakila.film znajdź te filmy (tutaj musisz wykonać więcej niż jedno podzapytanie).
+--  Znajdź aktorów, którzy zagrali w filmach o długości (kolumna longest_movie_duration) 184, 174, 176, 164, 5
 
-SELECT *
-FROM sakila3_7.actor;
-
-select *
-from sakila3_7.actor_analytics;
-
-select *
-from sakila3_7.film;
-
-SELECT *
-FROM sakila3_7.film
-WHERE film_id IN (SELECT FROM actor_analytics WHERE actor_analytics.longest_movie_duration IN (184, 174, 176, 164, 5));
-g
+SELECT first_name, last_name
+FROM sakila3_7.actor
+WHERE actor_id IN (SELECT actor_id FROM sakila3_7.actor_analytics WHERE longest_movie_duration IN (184, 174, 176, 164, 5));
 
 
-select *
-from film where film_id in (select film_id from film_actor where actor_id in
-            (select actor_analytics.actor_id from actor_analytics where longest_movie_duration in
-                                                (184, 174, 176, 164, 5)))
-and length in (184, 174, 176, 164, 5);
+-- Używając poprzedniego podpunktu, z sakila.film znajdź te filmy (tutaj musisz wykonać więcej niż jedno podzapytanie).
+
+SELECT title
+FROM sakila3_7.film WHERE film_id IN (SELECT film_id FROM film_actor WHERE actor_id IN
+            (SELECT actor_analytics.actor_id FROM actor_analytics WHERE longest_movie_duration IN (184, 174, 176, 164, 5)))
+                      AND length in (184, 174, 176, 164, 5);
 
