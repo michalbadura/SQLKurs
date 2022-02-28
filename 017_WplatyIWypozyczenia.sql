@@ -1,5 +1,5 @@
 /*
- Napisz złączenie, które połączy tabele rental oraz payment. Wyświetl tylko poniższe kolumny:
+Napisz złączenie, które połączy tabele rental oraz payment. Wyświetl tylko poniższe kolumny:
 
 payment_id,
 rental_id,
