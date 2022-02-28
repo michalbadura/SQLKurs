@@ -18,3 +18,21 @@ Jeśli stwierdzisz, że relacja pomiędzy dwoma tabelami to n-n, podaj również
 
 
  */
+
+
+
+/*
+ Relacje między:
+
+ staff oraz rental ->
+
+ city oraz country ->
+
+ language oraz film ->
+
+ actor oraz film ->
+
+ customer oraz store ->
+
+
+ */
