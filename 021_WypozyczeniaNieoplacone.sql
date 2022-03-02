@@ -14,3 +14,41 @@ FROM
         tabl2 as t2 USING (key)
 WHERE t1.col_name > 0
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ select * from rental r
+left join tasks1_7.payment p on r.rental_id = p.rental_id
+where p.payment_id is null;
+
+select * from tasks1_7.payment p
+right join rental r on r.rental_id = p.rental_id
+where p.payment_id is null;
+
+
+
+
+
+
+
+
+
+
+
+
