@@ -1,11 +1,7 @@
--- SELECT DISTINCT category_id FROM sakila3_7.film_category
-
-
- /* SELECT * FROM sakila3_7.film_category */
 
 
 
-/*
+
 
  zadanie 1
 
