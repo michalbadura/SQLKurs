@@ -1,6 +1,6 @@
 
 
-
+SELECT;
 
 
  zadanie 1
