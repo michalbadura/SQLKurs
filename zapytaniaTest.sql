@@ -1,6 +1,5 @@
 
 
-SELECT;
 
 
  zadanie 1
