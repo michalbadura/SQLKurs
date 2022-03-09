@@ -1,5 +1,5 @@
 /*
  Nowy setup.
 
- Działa. ^^ Go, go, go!
+ Działa. ^^ Go, go, go! xD
  */
