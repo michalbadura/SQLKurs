@@ -1,4 +1,4 @@
-select e.gender, avg(salary) from salaries s
+/* select e.gender, avg(salary) from salaries s
     inner join employees e on s.emp_no = e.emp_no
     where now() between from_date and to_date
 group by e.gender;
@@ -24,4 +24,4 @@ with raport_plac as (
 )
     select plec, pion, lead(av_salary) over (partition by pion order by plec) / av_salary, lag(av_salary) over (partition by pion order by plec) / av_salary from raport_plac
     where plec is not null
-    and pion is not null;
+    and pion is not null; */
