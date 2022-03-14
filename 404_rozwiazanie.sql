@@ -24,4 +24,4 @@ with raport_plac as (
 )
     select plec, pion, lead(av_salary) over (partition by pion order by plec) / av_salary, lag(av_salary) over (partition by pion order by plec) / av_salary from raport_plac
     where plec is not null
-    and pion is not null; */
+    and pion is not null */
