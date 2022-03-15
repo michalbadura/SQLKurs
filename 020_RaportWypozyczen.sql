@@ -1,4 +1,4 @@
-/*Raport wypożyczeń
+/*
 Używając kwerend i sposobu łączenia z poprzednich zadań napisz kwerendę, które zwróci następujące informacje dot. wypożyczenia:
 
 id wypożyczenia,
