@@ -28,34 +28,23 @@ FROM
 
  */
 
-SELECT * FROM sakila3_7.film;
 
-SELECT * FROM sakila3_7.inventory;
-
-SELECT * FROM sakila3_7.rental;
-
-SELECT * FROM sakila3_7.payment;
 
 
 SELECT
        r.rental_id AS 'id wypożyczenia',
-       film_id AS 'id filmu',
-       title AS 'tytuł filmu',
-       description AS 'opis filmu',
-       rating AS 'rating filmu',
-       rental_rate AS 'cena wypożyczenia',
+       f.film_id AS 'id filmu',
+       f.title AS 'tytuł filmu',
+       f.description AS 'opis filmu',
+       f.rating AS 'rating filmu',
+       f.rental_rate AS 'cena wypożyczenia',
        r.rental_date AS 'datę wypożyczenia',
        r.return_date AS 'datę płatności',
        p.amount AS 'kwotę płatności'
 FROM sakila3_7.rental AS r
     INNER JOIN sakila3_7.payment AS p
-        ON r.rental_id = p.rental_id;
-
-;
-
-
-
-
-
-
-
+        ON r.rental_id = p.rental_id
+    INNER JOIN sakila3_7.inventory AS i
+        ON i.inventory_id = r.inventory_id
+    INNER JOIN sakila3_7.film AS f
+        ON f.film_id = i.film_id;
