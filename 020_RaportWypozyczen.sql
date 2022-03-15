@@ -28,6 +28,11 @@ FROM
 
  */
 
+SELECT * FROM sakila3_7.film;
+
+SELECT * FROM sakila3_7.inventory;
+
+SELECT * FROM sakila3_7.rental;
 
 
 
@@ -38,11 +43,3 @@ FROM
 
 
 
-
-
-
- select i.inventory_id, f.film_id, f.title, f.description, f.release_year from inventory i
-inner join film f on i.film_id = f.film_id;
-
-select i.inventory_id, f.film_id, f.title, f.description, f.release_year from inventory i
-inner join film f using (film_id);
