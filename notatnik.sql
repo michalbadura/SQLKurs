@@ -19,7 +19,7 @@ inner join film_actor fa on film.film_id = fa.film_id
 inner join actor_analytics aa on fa.actor_id = aa.actor_id
 where longest_movie_duration in (184, 174, 176, 164, 5)
 and film.length in (184, 174, 176, 164, 5);
-
+xD
  */
 
 
