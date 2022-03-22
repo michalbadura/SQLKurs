@@ -1,10 +1,21 @@
 /*
 Tabela tasks.films_to_be_cleaned jest kopią tabeli film. Chcemy z niej usunąć filmy, które spełniają następujące warunki:
 
-film_category in (1, 5, 7, 9),
-length jest krótszy niż 1 godzina,
-rating nie jest NC-17 lub PG.
+film_category in (1, 5, 7, 9), FC
+length jest krótszy niż 1 godzina, TBC
+rating nie jest NC-17 lub PG. TBC
 Zadanie wykonaj używając JOIN. Po wykonaniu swojego zapytania napisz kolejne, które sprawdzi jego poprawność.
  */
 
- select * from tasks3_7.films_to_be_cleaned
+select * from tasks3_7.films_to_be_cleaned;
+
+select * from sakila3_7.film_category;
+
+
+SELECT *
+FROM tasks3_7.films_to_be_cleaned AS ftbc
+    INNER JOIN sakila3_7.film_category as fc
+        ON ftbc.film_id = fc.film_id
+WHERE fc.category_id IN (1, 5, 7, 9)
+  AND ftbc.length < 60
+  AND ftbc.rating NOT IN ('NC-17', 'PG');
