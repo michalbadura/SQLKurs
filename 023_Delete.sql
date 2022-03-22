@@ -6,3 +6,5 @@ length jest krótszy niż 1 godzina,
 rating nie jest NC-17 lub PG.
 Zadanie wykonaj używając JOIN. Po wykonaniu swojego zapytania napisz kolejne, które sprawdzi jego poprawność.
  */
+
+ select * from tasks3_7.films_to_be_cleaned

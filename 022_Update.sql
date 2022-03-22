@@ -17,6 +17,3 @@ UPDATE
         ON c.country_id = cc.country_id
 SET cc.country = c.country
 WHERE cc.country IS NULL;
-
-
-
