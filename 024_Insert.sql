@@ -25,7 +25,7 @@ WHERE ad.district = 'California';
 SELECT *
 FROM tasks3_7.california_payments AS cpay
 INNER JOIN sakila3_7.customer AS cs
-           ON cpay.customer_id = cs.customer_id
-        INNER JOIN sakila3_7.address AS ad
-            ON cs.address_id = ad.address_id
+            ON cpay.customer_id = cs.customer_id
+                INNER JOIN sakila3_7.address AS ad
+                    ON cs.address_id = ad.address_id
 WHERE ad.district <> 'California';
