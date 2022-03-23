@@ -1,8 +1,11 @@
 /*
-Tabela tasks.films_to_be_cleaned jest kopią tabeli film. Chcemy z niej usunąć filmy, które spełniają następujące warunki:
+Tabela tasks.california_payments jest pustą kopią tabeli sakila.payments.
 
-film_category in (1, 5, 7, 9),
-length jest krótszy niż 1 godzina,
-rating nie jest NC-17 lub PG.
-Zadanie wykonaj używając JOIN. Po wykonaniu swojego zapytania napisz kolejne, które sprawdzi jego poprawność.
+Napisz kwerendę, która uzupełni ją tylko o te płatności, które pochodzą od klientów posiadających adres z California.
+
+Dodatkowo napisz zapytanie, które sprawdzi, że klienci, którzy są dostępni w tabeli tasks.california_payments, pochodzą tylko z tego obrębu.
  */
+
+SELECT * FROM tasks3_7.california_payments;
+
+SELECT * FROM sakila3_7.payment;
