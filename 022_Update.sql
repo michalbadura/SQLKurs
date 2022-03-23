@@ -14,6 +14,6 @@ Dodatkowo, po wykonaniu zapytania napisz kolejne, które sprawdzi, czy ta kolumn
 UPDATE
     tasks3_7.city_country AS cc
         INNER JOIN sakila3_7.country AS c
-        ON c.country_id = cc.country_id
+                ON c.country_id = cc.country_id
 SET cc.country = c.country
 WHERE cc.country IS NULL;
