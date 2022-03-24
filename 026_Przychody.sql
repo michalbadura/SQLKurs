@@ -50,4 +50,3 @@ SELECT staff_id,
 FROM sakila3_7.payment
 GROUP BY staff_id, month
 ORDER BY staff_id, monthly_income_per_employee DESC;
-
