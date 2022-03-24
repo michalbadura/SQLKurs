@@ -24,6 +24,44 @@ SELECT
 FROM
     referential_constraints
 WHERE delete_rule = 'CASCADE'
-
  */
 
+
+
+
+
+-- jaki jest typ relacji pomiędzy poszczególnymi parami tabel,
+
+-- ODP. school_id z tabeli school jest w relacji wielu do jednego ze school_id z tabeli class. Tak samo class_id z tabeli class jest w relacji wiele do jednego względem class_id z tabeli children.
+
+
+
+-- co się stanie, jeśli usuniesz rekord z tabeli children, czy ta operacja ma wpływ na inne tabele? Jakie?
+
+-- ODP. Nic sie nie stan. W klasie zostana inne dzieci.
+
+
+
+-- co się stanie, jeśli usuniesz rekord z tabeli class, czy ta operacja ma wpływ na inne tabele? Jakie?
+
+-- ODP. Wraz z nim z ostana usuniete dzieci nalezace do tej klasy z tabeli children.
+
+
+
+-- co się stanie, jeśli usuniesz rekord z tabeli school, czy ta operacja ma wpływ na inne tabele? Jakie?
+
+-- ODP. Usunitea zostana rowniez klasy, a wiec i dzieci z dwoch kolejnych tabel.
+
+
+
+-- napisz kwerendę, która usunie jedną ze szkół. Co się stało w innych tabelach?
+
+SELECT * FROM tasks3_7.school;
+
+SELECT * FROM tasks3_7.class;
+
+SELECT * FROM tasks3_7.child;
+
+
+
+-- używając zapytania z wykładu, określ kaskadowe relacje pomiędzy tabelami.
