@@ -7,9 +7,9 @@ rating nie jest NC-17 lub PG. TBC
 Zadanie wykonaj używając JOIN. Po wykonaniu swojego zapytania napisz kolejne, które sprawdzi jego poprawność.
  */
 
-select * from tasks3_7.films_to_be_cleaned;
 
-select * from sakila3_7.film_category;
+
+
 
 DELETE ftbc
 FROM tasks3_7.films_to_be_cleaned AS ftbc
@@ -19,7 +19,7 @@ WHERE fc.category_id IN (1, 5, 7, 9)
   AND ftbc.length < 60
   AND ftbc.rating NOT IN ('NC-17', 'PG');
 
-                             -- !!! wyjasnic z mentorem
+
 
 -- SPRAWDZENIE. Zadanie jest poprawne, w bazie nie ma rekordow spelniajacych zalozone kryteria. Pierwotnie bylo ich 16.
 
