@@ -56,12 +56,23 @@ WHERE delete_rule = 'CASCADE'
 
 -- napisz kwerendę, która usunie jedną ze szkół. Co się stało w innych tabelach?
 
-SELECT * FROM tasks3_7.school;
+DELETE
+FROM tasks3_7.school
+WHERE school_id = 3;
 
-SELECT * FROM tasks3_7.class;
-
-SELECT * FROM tasks3_7.child;
+-- Wszystkie rekordy bedace w relacji ze szkoła numer 3 zostaly usuniete z bazy.
 
 
 
 -- używając zapytania z wykładu, określ kaskadowe relacje pomiędzy tabelami.
+
+SELECT
+    UNIQUE_CONSTRAINT_SCHEMA,
+    TABLE_NAME,
+    REFERENCED_TABLE_NAME
+FROM
+    information_schema.referential_constraints
+WHERE delete_rule = 'CASCADE'
+  AND UNIQUE_CONSTRAINT_SCHEMA = 'tasks3_7';
+
+-- child -> class, class -> school
