@@ -1,5 +1,7 @@
 /*
-Napisz kwerendę, która stworzy ranking aktorów na podstawie średniego ratingu z filmów, w których grali. W celu wykonania zadania przyjmij następujące założenia:
+Napisz kwerendę, która stworzy ranking aktorów na podstawie średniego ratingu z filmów, w których grali.
+
+W celu wykonania zadania przyjmij następujące założenia:
 
 użyj widoku actor_analytics,
 do stworzenia rankingu posłuż się funkcją ROW_NUMBER().
@@ -16,4 +18,12 @@ SELECT *, ROW_NUMBER() OVER (ORDER BY amount DESC)
 FROM payment
  */
 
- SELECT * FROM sakila3_7.actor_analytics
+
+
+
+SELECT actor_id,
+       first_name,
+       last_name,
+       avg_film_rate,
+       ROW_NUMBER() over (ORDER BY avg_film_rate DESC)
+FROM sakila3_7.actor_analytics;
