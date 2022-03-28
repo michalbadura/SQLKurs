@@ -16,6 +16,7 @@ W celu ograniczenia wyników zapytania możesz posłużyć się klauzulą LIMIT,
 
 DROP TABLE tmp_boxoffice; -- wykonac jesli juz istnieje na bazie.
 
+
 CREATE TEMPORARY TABLE tmp_boxoffice AS
 SELECT
        f.title AS "nazwa filmu",
@@ -34,11 +35,6 @@ FROM sakila3_7.rental r
 GROUP BY i.film_id
 ORDER BY `liczba wypozyczen filmu` DESC
 LIMIT 10;
-
-
-
-SELECT * FROM tmp_boxoffice;
-
 
 
 
