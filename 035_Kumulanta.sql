@@ -1,5 +1,4 @@
 /*
- Kumulanta
 Kumulanta, jak sama nazwa wskazuje, określa wartość narastającą, funkcje okna dają nam możliwość policzenia według ustalonego porządku - służy do tego klauzula ORDER BY.
 
 W pewnym sensie ROW_NUMBER() był cicho przemyconym przykładem kumulanty w sensie liczebności elementów w partycji. W statystyce to podejście można zastosować do wyznaczenia np. dystrybuanty.
@@ -19,3 +18,12 @@ SELECT
     , ROW_NUMBER() OVER (ORDER BY actor_id)
 FROM sakila.actor_analytics
  */
+
+
+
+SELECT ROW_NUMBER() OVER (ORDER BY actor_id) AS rn,
+       actor_id,
+       MIN(avg_film_rate) OVER (ORDER BY actor_id) AS min_rate,
+       SUM(actor_payload) OVER (ORDER BY actor_id) AS sum_payload,
+       MAX(longest_movie_duration) OVER (ORDER BY actor_id) AS max_duration
+FROM sakila3_7.actor_analytics;
