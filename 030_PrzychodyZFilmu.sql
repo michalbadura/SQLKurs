@@ -6,22 +6,41 @@ kwota wpłat z filmu.
 Pamiętaj o sprawdzeniu poprawności zadania.
  */
 
-SELECT * FROM sakila3_7.rental;
-
-SELECT * FROM sakila3_7.inventory;
-
-SELECT  * FROM sakila3_7.payment;
 
 
 
-/*
-SELECT customer_id AS client,
-       date_format(payment_date, '%Y-%m') AS month,
-       SUM(amount) AS monthly_income_per_client
-FROM sakila3_7.payment
-GROUP BY client, month
-ORDER BY client, monthly_income_per_client DESC;
+DROP TABLE tmp_film_payments; -- wykonac jesli juz istnieje na bazie.
 
- */
+
+CREATE TEMPORARY TABLE tmp_film_payments AS
+SELECT i.film_id,
+       SUM(p.amount) AS "kwota wplat z filmu"
+FROM sakila3_7.rental r
+    INNER JOIN sakila3_7.inventory i
+        ON r.inventory_id = i.inventory_id
+    INNER JOIN sakila3_7.payment p
+        ON r.rental_id = p.rental_id
+GROUP BY film_id;
+
+
+
+
+-- SPRAWDZENIE
+
+
+WITH trust_no1 AS (
+    SELECT i.film_id,
+           SUM(p.amount) AS "kwota wplat z filmu"
+    FROM sakila3_7.rental r
+             INNER JOIN sakila3_7.inventory i
+                        ON r.inventory_id = i.inventory_id
+             INNER JOIN sakila3_7.payment p
+                        ON r.rental_id = p.rental_id
+    GROUP BY film_id
+)
+SELECT *
+FROM trust_no1 tn1
+    INNER JOIN tmp_film_payments tfp ON tfp.film_id = tn1.film_id
+WHERE tn1.`kwota wplat z filmu` = tfp.`kwota wplat z filmu`;
 
 
