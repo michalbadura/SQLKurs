@@ -43,6 +43,3 @@ WHERE customer_id < 4
 GROUP BY p.staff_id, p.customer_id
 WITH ROLLUP
 HAVING payments > 70;
-
-
-
