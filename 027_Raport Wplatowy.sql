@@ -32,8 +32,11 @@ GROUP BY c.customer_id;
 
 -- SPRAWDZENIE
 
-select sum("kwota wpłat") from customer_payments
+select
+       sum("kwota wpłat")
+from customer_payments
 having sum("kwota wpłat") <> (select sum(amount) from payment);
 
-select sum("liczbę wpłat") from customer_payments
+select sum("liczbę wpłat")
+from customer_payments
 having sum("liczbę wpłat") <> (select count(*) from payment);
