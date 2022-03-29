@@ -1,5 +1,4 @@
 /*
- Kalendarz
 Używając ROW_NUMBER oraz odpowiednich funkcji dat, stwórz w bazie danych tabelę calendar, która:
 
 będzie zaczynała się od '2000-01-01',
@@ -37,3 +36,4 @@ Sprawdź, ile jest dni pomiędzy '2000-01-01' oraz '2030-12-31'.
 W miejsce LIMIT z kwerendy powyżej wpisz wartość z poprzedniego punktu.
 Używając odpowiednich funkcji dat napisz zapytanie, które zwróci widok kalendarza.
  */
+
