@@ -9,3 +9,4 @@ Dodatkowo zadbaj o logiczne wyświetlenie wyniku używając ORDER BY.
 
 
  */
+
