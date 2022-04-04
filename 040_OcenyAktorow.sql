@@ -12,18 +12,21 @@ liczbę wystąpień w każdej grupie,
 sumę przychodów każdej grupy,
 liczbę filmów w każdej grupie,
 średni rating w grupie.
+
 Wskazówka
+
 Zadanie wykonaj w dwóch krokach:
 
 Stwórz podzapytanie, w którym stworzona zostanie kolumna acting_level,
+
 Na podstawie wyników z poprzedniego podpunktu wykonaj resztę zadania.
 
  */
 
-SELECT *
-FROM sakila3_7.actor_analytics;
 
 
+
+-- Pierwszy krok
 
 SELECT
        *,
@@ -35,3 +38,23 @@ SELECT
             ELSE 'error'
        END AS acting_level
 FROM sakila3_7.actor_analytics;
+
+
+
+
+
+-- Drugi krok, calosc.
+
+SELECT count(*) AS "number of amounts",
+       SUM(actor_payload) AS "summary of payouts",
+       SUM(films_amount) AS "number of films",
+       AVG(avg_film_rate) AS `average film rate`,
+       CASE
+            WHEN avg_film_rate < 2 THEN 'poor acting'
+            WHEN avg_film_rate BETWEEN 2 AND 2.5 THEN 'fair acting'
+            WHEN avg_film_rate BETWEEN 2.5 AND 3.5 THEN 'good acting'
+            WHEN avg_film_rate > 3.5 THEN 'suberb acting'
+            ELSE 'error'
+       END AS acting_level
+FROM sakila3_7.actor_analytics
+group by acting_level;
