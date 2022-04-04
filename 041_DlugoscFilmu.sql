@@ -13,7 +13,25 @@ Procedurę nazwij film_classification.
 
 -- Pierwszy wariant, uzywam 'case......when'
 
-
+CREATE PROCEDURE film_classification(IN length double)
+BEGIN
+    CASE
+        WHEN length < 0.01 THEN
+            SELECT 'wrong data, you can not turn back time xD';
+        WHEN length IS NULL THEN
+            SELECT 'no data';
+        WHEN length BETWEEN 0.01 AND 60 THEN
+            SELECT 'v. short';
+        WHEN length BETWEEN 60 AND 90 THEN
+            SELECT 'short';
+        WHEN length BETWEEN 90 AND 120 THEN
+            SELECT 'normal';
+        WHEN length BETWEEN  120 AND 150 THEN
+            SELECT 'long';
+        WHEN length > 150 THEN
+            SELECT 'v. long';
+    END CASE;
+END;
 
 
 
@@ -37,7 +55,6 @@ BEGIN
         SELECT 'no data';
     END IF;
 END;
-
 
 
 -- Sprawdzenie czy dziala,
