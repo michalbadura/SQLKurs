@@ -31,10 +31,14 @@ Na podstawie wyników z poprzedniego podpunktu wykonaj resztę zadania.
 SELECT
        *,
        CASE
-            WHEN avg_film_rate < 2 THEN 'poor acting'
-            WHEN avg_film_rate BETWEEN 2 AND 2.5 THEN 'fair acting'
-            WHEN avg_film_rate BETWEEN 2.5 AND 3.5 THEN 'good acting'
-            WHEN avg_film_rate > 3.5 THEN 'suberb acting'
+            WHEN avg_film_rate < 2
+                THEN 'poor acting'
+            WHEN avg_film_rate BETWEEN 2 AND 2.5
+                THEN 'fair acting'
+            WHEN avg_film_rate BETWEEN 2.5 AND 3.5
+                THEN 'good acting'
+            WHEN avg_film_rate > 3.5
+                THEN 'suberb acting'
             ELSE 'error'
        END AS acting_level
 FROM sakila3_7.actor_analytics;
@@ -50,11 +54,15 @@ SELECT count(*) AS "number of amounts",
        SUM(films_amount) AS "number of films",
        AVG(avg_film_rate) AS `average film rate`,
        CASE
-            WHEN avg_film_rate < 2 THEN 'poor acting'
-            WHEN avg_film_rate BETWEEN 2 AND 2.5 THEN 'fair acting'
-            WHEN avg_film_rate BETWEEN 2.5 AND 3.5 THEN 'good acting'
-            WHEN avg_film_rate > 3.5 THEN 'suberb acting'
+            WHEN avg_film_rate < 2
+                THEN 'poor acting'
+            WHEN avg_film_rate BETWEEN 2 AND 2.5
+                THEN 'fair acting'
+            WHEN avg_film_rate BETWEEN 2.5 AND 3.5
+                THEN 'good acting'
+            WHEN avg_film_rate > 3.5
+                THEN 'suberb acting'
             ELSE 'error'
        END AS acting_level
 FROM sakila3_7.actor_analytics
-group by acting_level;
+GROUP BY acting_level;
