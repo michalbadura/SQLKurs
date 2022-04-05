@@ -9,9 +9,6 @@ W celu wykonania zadania użyj tabeli payment.
 Wynik pogrupuj i używając SQL, odpowiedz na pytanie, jaki procent wszystkich wpłat stanowią kary (fee).
 */
 
-SELECT * FROM sakila3_7.payment;
-
-
 
 -- Zapytanie grupujace wplaty, wg. fee i regular. Opcja 'case/when'
 
@@ -28,28 +25,18 @@ GROUP BY fees_charged;
 
 
 
--- Zapytanie grupujace wplaty, wg. fee i regular. Opcja 'if/then'
+-- Zapytanie grupujace wplaty, wg. fee i regular. Opcja 'IF'
 
-SELECT SUM(amount) AS "sum of aunt",
-       IFELSE amount BETWEEN 0 AND 2
-       THEN SELECT 'fee';
+SELECT SUM(amount) AS "sum of amount",
+       IF(amount > 2, 'regular', 'fee') -- w odroznieu od elseif, dajesz if(warunek konca, true, false.)
+           AS fees_charged
 FROM sakila3_7.payment
-GROUP BY fees_charged;
-
-WITH;
+GROUP by fees_charged;
 
 
-                                                    -- DOKONCZYC
 
-select sum(amount), if (amount < 2, 'fee', 'regular') as payment_type
-from payment
-    group by payment_type;
+-- Druga czesc zadania, czli Wynik pogrupuj i używając SQL, odpowiedz na pytanie, jaki procent wszystkich wpłat stanowią kary (fee).
 
-with payment_types as (
-    select sum(amount) as total_amount,
-           if(amount < 2,
-               'fee',
-               'regular') as payment_type
-    from payment
-    group by payment_type
-) select total_amount, payment_type, total_amount / sum(total_amount) over () from payment_types;
+
+
+
