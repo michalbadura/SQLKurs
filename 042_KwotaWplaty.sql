@@ -37,6 +37,18 @@ GROUP by fees_charged;
 
 -- Druga czesc zadania, czli Wynik pogrupuj i używając SQL, odpowiedz na pytanie, jaki procent wszystkich wpłat stanowią kary (fee).
 
+WITH payment_types AS (
+    SELECT  sum(amount) AS sum_of_amount,
+            IF(amount > 2, 'regular', 'fee') AS fees_charged
+FROM sakila3_7.payment
+GROUP BY fees_charged
+)
+SELECT sum_of_amount,
+       fees_charged,
+       sum_of_amount / sum(sum_of_amount)
+           over ()
+                AS "percent of payment"
+FROM payment_types;
 
 
 
