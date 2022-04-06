@@ -13,9 +13,12 @@ Wykonaj to zadanie dodatkowo partycjonując według rating.
         title,
         rating,
         rentals,
-        RANK() OVER (ORDER BY rentals) AS r,
-        DENSE_RANK() OVER (ORDER BY rentals) AS dr,
-        ROW_NUMBER() OVER (ORDER BY rentals) AS rn
+        RANK()
+            OVER (ORDER BY rentals) AS r,
+        DENSE_RANK()
+            OVER (ORDER BY rentals) AS dr,
+        ROW_NUMBER()
+            OVER (ORDER BY rentals) AS rn
  FROM sakila3_7.film_analytics;
 
 
@@ -25,9 +28,12 @@ Wykonaj to zadanie dodatkowo partycjonując według rating.
         title,
         rating,
         rentals,
-        RANK() OVER (PARTITION BY rating ORDER BY rentals),
-        DENSE_RANK() OVER (PARTITION BY rating ORDER BY rentals),
-        ROW_NUMBER() OVER (PARTITION BY rating ORDER BY rentals)
+        RANK()
+            OVER (PARTITION BY rating ORDER BY rentals),
+        DENSE_RANK()
+            OVER (PARTITION BY rating ORDER BY rentals),
+        ROW_NUMBER()
+            OVER (PARTITION BY rating ORDER BY rentals)
  FROM sakila3_7.film_analytics;
 
 

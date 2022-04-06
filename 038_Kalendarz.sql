@@ -3,6 +3,7 @@ Używając ROW_NUMBER oraz odpowiednich funkcji dat, stwórz w bazie danych tabe
 
 będzie zaczynała się od '2000-01-01',
 skończy się na dacie '2030-12-31'.
+
 W tabeli kalendarza powinny znaleźć się następujące kolumny:
 
 data (date),
@@ -12,6 +13,7 @@ dzień (date_day),
 numer dnia tygodnia (day_of_week),
 numer tygodnia w roku (week_of_year),
 data wygenerowania kalendarza (last_update).
+
 Podgląd na wynik tabeli:
 
 +----------+---------+----------+--------+-----------+------------+-------------------+
@@ -32,8 +34,26 @@ FROM payment
 LIMIT 100
 
 Schemat rozwiązania zadania
+
 Sprawdź, ile jest dni pomiędzy '2000-01-01' oraz '2030-12-31'.
+
 W miejsce LIMIT z kwerendy powyżej wpisz wartość z poprzedniego punktu.
+
 Używając odpowiednich funkcji dat napisz zapytanie, które zwróci widok kalendarza.
  */
 
+-- sprawdzam, liczbe dni miedzy '2000-01-01' oraz '2030-12-31'
+
+SELECT EXTRACT(DAY FROM payment_date)
+       -- rok (date_year)
+
+FROM sakila3_7.payment
+WH
+
+SElECT SELECT
+    ROW_NUMBER() over () AS rn
+
+select * from sakila3_7.payment;
+
+
+-- DOKONCZYC

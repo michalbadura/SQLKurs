@@ -33,8 +33,10 @@ Dodatkowo możesz wspomóc się rozwiązaniem zadania o kumulantach.
 
 
 SELECT actor_payload,
-       SUM(actor_payload) OVER (ORDER BY actor_payload DESC)
-           / SUM(actor_payload) OVER () AS payload_percent,
-       ROW_NUMBER() OVER (ORDER BY actor_payload DESC )
-               / COUNT(*) OVER () AS count_percent
+       SUM(actor_payload)
+           OVER (ORDER BY actor_payload DESC)
+                / SUM(actor_payload) OVER () AS payload_percent,
+       ROW_NUMBER()
+           OVER (ORDER BY actor_payload DESC)
+                / COUNT(*) OVER () AS count_percent
 FROM sakila3_7.actor_analytics;
