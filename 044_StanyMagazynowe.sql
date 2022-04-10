@@ -2,7 +2,7 @@
 Zmodyfikuj rozwiązanie poprzedniego zadania tak, aby dodatkowo zwracało liczbę filmów, która pozostała do wypożyczenia.
  */
 
- drop procedure  film_rental;
+drop procedure  film_rental;
 create procedure film_rental(in film_id_param int, out new_stock_value int)
 begin
     start transaction;
