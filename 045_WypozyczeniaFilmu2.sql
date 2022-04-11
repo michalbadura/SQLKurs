@@ -16,18 +16,3 @@ Wskazówka
 Stan magazynowy aktualizuje się poprzez usunięcie odpowiedniego rekordu z tabeli; pamiętaj, aby przed DELETE rozpocząć transakcję.
  */
 
- drop procedure  film_rental_store;
-create procedure film_rental_store(in film_id_param int, in store_id_param int, out new_stock_value int)
-begin
-    start transaction;
-    delete from stock_part_2 where film_id = film_id_param and store_id = store_id_param limit 1;
-    if row_count() = 0 then
-        rollback;
-    else
-        commit;
-    end if;
-    set new_stock_value =  (select count(*) from stock_part_2 where film_id = film_id_param and store_id = store_id_param);
-end;
-
-call film_rental_store(4, 1, @stock_value);
-select @stock_value;
